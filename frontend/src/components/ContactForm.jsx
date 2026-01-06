@@ -47,43 +47,51 @@ function ContactForm({ onContactAdded }) {
   };
 
   return (
-    <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-lg">
-  <h3 className="text-xl font-semibold mb-4 text-gray-700">
-    Add New Contact
-  </h3>
+  <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-lg">
+    <h3 className="text-xl font-semibold mb-4 text-gray-700">
+      Add New Contact
+    </h3>
 
-  <form onSubmit={handleCreate} className="space-y-4">
-    <input
-      name="name"
-      placeholder="Full Name"
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      required
-    />
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input
+        name="name"
+        placeholder="Full Name"
+        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onChange={handleChange}
+        value={formData.name}
+        required
+      />
 
-    <input
-      name="email"
-      placeholder="Email Address"
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
+      <input
+        name="email"
+        placeholder="Email Address"
+        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onChange={handleChange}
+        value={formData.email}
+      />
 
-    <input
-      name="phone"
-      placeholder="Phone Number"
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      required
-    />
+      <input
+        name="phone"
+        placeholder="Phone Number"
+        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onChange={handleChange}
+        value={formData.phone}
+        required
+      />
 
-    <textarea
-      name="message"
-      placeholder="Notes (optional)"
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
+      <textarea
+        name="message"
+        placeholder="Notes (optional)"
+        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onChange={handleChange}
+        value={formData.message}
+      />
 
-    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition">
-      ➕ Add Contact
-    </button>
-  </form>
-</div>
+      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition">
+        ➕ Add Contact
+      </button>
+    </form>
+  </div>
   );
 }
 
