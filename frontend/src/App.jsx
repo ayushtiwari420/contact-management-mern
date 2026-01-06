@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar.jsx";
 import Home from "./Pages/Home.jsx";
 import Login from "./Pages/Login.jsx";
 import Register from "./Pages/Register.jsx";
-import Account from "./pages/Account.jsx";
+import Account from "./Pages/Account.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
