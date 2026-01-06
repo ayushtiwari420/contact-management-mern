@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar.jsx";
-import Home from "./Pages/Home.jsx";
-import Login from "./Pages/Login.jsx";
-import Register from "./Pages/Register.jsx";
-import Account from "./Pages/Account.jsx";
+import Home from "./pages/Home.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Account from "./pages/Account.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
