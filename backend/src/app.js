@@ -8,8 +8,8 @@ const app = express();
 app.use(cors({
   origin: [
     "https://contact-management-mern-five.vercel.app", 
-    "https://contact-management-hub.netlify.app"       
-  ], 
+    "https://contact-management-hub.netlify.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
@@ -17,8 +17,9 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use("/auth", authRoutes);
-app.use("/contacts", contactRoutes);
+/* UPDATED ROUTES WITH /API PREFIX */
+app.use("/api/auth", authRoutes);       // Changed from /auth
+app.use("/api/contacts", contactRoutes); // Changed from /contacts
 
 app.get("/", (req, res) => {
   res.send("API is running");
