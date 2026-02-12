@@ -8,7 +8,7 @@ function Login({ setUser }) {
     const password = e.target.password.value;
 
     try {
-      const { data } = await API.post("/auth/login", { email, password });
+      const { data } = await API.post("/api/auth/login", { email, password });
       localStorage.setItem("token", data.token);
       setUser(data);
     } catch (err) {
