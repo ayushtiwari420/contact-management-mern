@@ -15,7 +15,7 @@ function Home({ user }) {
         const { data } = await API.get("/api/contacts");
         setContacts(data);
       } catch (error) {
-        console.error(error);
+        console.error("Fetch Error:", error);
       }
     };
 
@@ -32,13 +32,12 @@ function Home({ user }) {
         name: form.name.value,
         email: form.email.value,
         phone: form.phone.value,
-        message: form.message.value,
       });
 
       setContacts([data, ...contacts]);
       form.reset();
     } catch (error) {
-      console.error(error);
+      console.error("Create Error:", error);
       alert("Failed to add contact");
     }
   };
@@ -49,7 +48,7 @@ function Home({ user }) {
       await API.delete(`/api/contacts/${id}`);
       setContacts(contacts.filter((c) => c._id !== id));
     } catch (error) {
-      console.error(error);
+      console.error("Delete Error:", error);
       alert("Failed to delete contact");
     }
   };
@@ -63,6 +62,7 @@ function Home({ user }) {
 
   const indexOfLastContact = currentPage * contactsPerPage;
   const indexOfFirstContact = indexOfLastContact - contactsPerPage;
+
   const currentContacts = filteredContacts.slice(
     indexOfFirstContact,
     indexOfLastContact
@@ -97,11 +97,14 @@ function Home({ user }) {
                   New Contact
                 </h3>
 
-                <form onSubmit={handleCreate} className="space-y-4">
+                <form
+                  onSubmit={handleCreate}
+                  className="space-y-4"
+                >
 
                   <input
                     name="name"
-                    placeholder="Name"
+                    placeholder="Full Name"
                     className="w-full p-3 border rounded"
                     required
                   />
@@ -120,7 +123,10 @@ function Home({ user }) {
                     required
                   />
 
-                  <button className="w-full bg-blue-600 text-white py-3 rounded font-bold">
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white py-3 rounded font-bold hover:bg-blue-700"
+                  >
                     Add Contact
                   </button>
 
@@ -171,7 +177,7 @@ function Home({ user }) {
 
                         <button
                           onClick={() => handleDelete(c._id)}
-                          className="text-red-500 font-bold"
+                          className="text-red-500 font-bold hover:text-red-700"
                         >
                           Delete
                         </button>
@@ -191,7 +197,7 @@ function Home({ user }) {
                       onClick={() =>
                         setCurrentPage((p) => p - 1)
                       }
-                      className="px-4 py-2 border rounded"
+                      className="px-4 py-2 border rounded disabled:opacity-40"
                     >
                       Prev
                     </button>
@@ -205,7 +211,7 @@ function Home({ user }) {
                       onClick={() =>
                         setCurrentPage((p) => p + 1)
                       }
-                      className="px-4 py-2 border rounded"
+                      className="px-4 py-2 border rounded disabled:opacity-40"
                     >
                       Next
                     </button>
