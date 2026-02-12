@@ -6,7 +6,7 @@ function Register({ setUser }) {
     const form = e.target;
 
     try {
-      const { data } = await API.post("/auth/register", {
+      const { data } = await API.post("/api/auth/register", {
         name: form.name.value,
         email: form.email.value,
         phone: form.phone.value,
