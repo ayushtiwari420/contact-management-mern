@@ -5,8 +5,12 @@ import contactRoutes from "./routes/contact.routes.js";
 
 const app = express();
 
-app.use(cors());
+const cors = require('cors');
 
+app.use(cors({
+    origin: 'https://contact-management-hub.netlify.app',
+    credentials: true
+}));
 app.use(express.json());
 
 /* UPDATED ROUTES WITH /API PREFIX */
