@@ -5,15 +5,7 @@ import contactRoutes from "./routes/contact.routes.js";
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    "https://contact-management-mern-five.vercel.app", 
-    "https://contact-management-hub.netlify.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 
